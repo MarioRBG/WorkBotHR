@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Control de flujo
+        // Estructura IF
+        
+        var edadingreso = 16;
+
+            if(edadingreso >= 16) {
+            document.write("FELICIDADES USTED TIENE UNA EDAD SUFICIENTE PARA ESTUDIAR EN EL INFOTEP")
+            } else {
+                document.write("LO SENTIMOS NO TIENE LA EDAD SUFICIENTE " + "<br>")
+            }
+
+
+            //condicional multiple.... IF ELSE
+
+            var num1 = 10;
+            var num2 = 10;
+
+            if(num1 > num2){
+                document.write("<br>"+" NUM1 ES MAYOR QUE LA VARIABLE NUM2")
+            } else if(num2 > num1){
+                document.write("<br>"+"NUM2 ES MAYOR QUE LA VARIABLE NUM1")
+            } else {
+                document.write("<br>"+"LAS VARIABLES SON IGUALES")
+            }
+
+            // Condicional anidada.... IF IF ELSE ELSE
+
+            var edadingreso = 16;
+            var educacion= "BACHILLER";
+
+            if(edadingreso >= 16){
+                if(educacion == "BACHILLER"){
+                    document.write("<br>"+"USTED CUMPLE CON LOS REQUISITOS")
+                } else {
+                    document.write("<br>"+"NO CUMPLES CON LOS REQUISITOS")
+                }
+                
+            } else {
+                document.write("<br>"+"USTED NO TIENE LA EDAD MINIMA PARA EL TECNICO")
+            }
+
+
+            // Estructura Switch.. Case
+
+            var combustible = "GASOLINA";
+
+            switch(combustible){
+                
+                case "GASOLINA":
+                    document.write("<br>"+"LA GASOLINA TIENE UN PRECIO ABUSIVO"+"<br>");
+                    break;
+                case "GASOIL":
+                    document.write("<br>"+"EL GASOIL ES MAS BARATO QUE LA GASOLINA"+"<br>");
+                    break;
+                case "GLP":
+                    document.write("<br>"+"EL MAS BARATO DE TODOS"+"<br>");
+                    break;
+                default:
+                    document.write("<br>"+"ESTE VALOR NO EXISTE"+"<br>")
+            }
+
+            // CICLO O BUBLES
+
+            // CICLO O BUCLE FOR
+
+            for(num3 = 1; num3 <= 10; num3++){
+                document.write(num3 + "<br>");
+
+            }
+
+            //CICLO WHILE
+
+            var resultado = 0;
+            var num = 10;
+            var i = 0;
+
+            while(i < num){
+                resultado = resultado + i;
+                i += 2;
+                document.write("EL RESULTADO ES " + resultado + "<br>")
+            }
+
+            var cadenatexto = "ESTAMOS EN UN TECNICO.";
+            var caracteres = cadenatexto.split("");
+
+            var resultado = "";
+            for(i in caracteres){
+                if(caracteres[i] == "n"){
+                    continue;
+                } else{
+                    resultado = resultado + caracteres[i]
+                }
+            }
+
+            document.write(resultado);
+
+            //
+
+    </script>
+    
+</body>
+</html>
