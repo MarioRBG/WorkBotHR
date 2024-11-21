@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gestion humana, HTML, html5, software, css, js, proyecto, empresa">
+    <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
+    <title>Human Intelligence Resources - Inicio sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body id="fondo">
+<div id="colorDfondo">
+    <header id="disenos">
+        <!-- Cajas de background -->
+        <div class="cubos">
+            <img src="{{ url_for('static', filename='imagenes/Cubo1.svg') }}" alt="Cubo1" class="Cubo1">
+            <img src="{{ url_for('static', filename='imagenes/Cubo2.svg') }}" alt="Cubo2" class="Cubo2">
+            <img src="{{ url_for('static', filename='imagenes/Cubo3.svg') }}" alt="Cubo3" class="Cubo3">
+            <img src="{{ url_for('static', filename='imagenes/Cubo4.svg') }}" alt="Cubo4" class="Cubo4">
+        </div>
+        <div class="estrellas">
+            <img src="{{ url_for('static', filename='imagenes/Estrellas.svg') }}" alt="Estrellas" class="estrellas1L">
+            <img src="{{ url_for('static', filename='imagenes/Estrellas.svg') }}" alt="Estrellas" class="estrellas2L">
+            <img src="{{ url_for('static', filename='imagenes/Estrellas.svg') }}" alt="Estrellas" class="estrellas3L">
+            <span class="star star1"></span>
+            <span class="star star2"></span>
+
+        </div>
+    </header>
+    <div class="login-background">
+        <div class="login-title">
+            <span>Iniciar sesión</span>
+        </div>
+        
+        <div class="login-form">
+
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="field">
+                    
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" autocomplete="username" required placeholder="Ingrese su usuario">
+                </div>
+                <div class="field">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password" required placeholder="Ingrese su contraseña">
+                </div>
+                <div class="field button-field">
+                   <button type="submit" class="button-login">Acceder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

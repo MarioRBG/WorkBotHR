@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gestion humana, HTML, html5, software, css, js, proyecto, empresa">
+    <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
+    <title>Human Intelligence Resources - Configuracion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/beneficios.js') }}"></script>
+</head>
+<body>
+    <!-- BOTONES PARTE SUPERIOR DEL HOME -->
+    <header id="areaDconfiguracion">
+        <h2>{{ nom_completo }}</h2>
+
+
+        <div id="usuarioP">
+            <a href="{{ url_for('configuracion_Perfil_Usuario') }}">
+
+                <img src="{{ url_for('static', filename='imagenes/perfil.PNG') }}" alt="Logo">
+            </a>
+        </div>
+    </header>
+    <br>
+
+    <!-- MENU LATERAL -->
+    <nav class="menuLateral">
+        <div class="logo">
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='imagenes/logo.PNG') }}" alt="Logo" width="150" height="150"></a>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home') }}" id="home"><img src="{{ url_for('static', filename='assets/home.svg') }}">Inicio</a></li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/empleado.svg') }}">Empleados</a>
+                <ul class="submenu empleados">
+                    <li><a href="{{ url_for('empleados') }}">Empleados</a></li>
+                    <li><a href="{{ url_for('nomina') }}">Nómina</a></li>
+                    <li><a href="{{ url_for('beneficios') }}">Beneficios</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/talento.svg') }}">Gestión de Talento</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('gestiondetalentos') }}">Area Principal</a></li>
+                    <li><a href="{{ url_for('reclutamiento') }}">Reclutamiento</a></li>
+                    <li><a href="{{ url_for('seleccion_de_personal') }}">Selección del Personal</a></li>
+                    <li><a href="{{ url_for('capacitacion') }}">Capacitación</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/horarios.svg') }}">Horario</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('horarios') }}">Asistencia</a></li>
+                    <li><a href="{{ url_for('horario_empleado') }}">Horarios de Empleados</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/politicas.svg') }}">Política</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('politica') }}">Riesgos Laborales</a></li>
+                    <li><a href="{{ url_for('rendimiento') }}">Metas</a></li>
+                    <li><a href="{{ url_for('seguridad') }}">Seguridad</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- caja de configuracion -->
+    <div class="contenedor-perfil">
+        <h2>Configuración de Perfil</h2>
+    
+        <!-- Foto de Perfil -->
+        <img id="foto-perfil" src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <input type="file" id="foto-nueva" accept="image/*" class="grupo-formulario">
+        <button type="button" class="btn-cambiar-foto" onclick="cambiarFoto()">Cambiar Foto</button>
+    
+        <!-- Nombre Completo -->
+        <div class="grupo-formulario">
+            <label for="nombreCompleto">Nombre Completo</label>
+            <input type="text" id="nombreCompleto" placeholder="Tu Nombre Completo">
+        </div>
+    
+        <!-- Correo Electrónico -->
+        <div class="grupo-formulario">
+            <label for="correoElectronico">Correo Electrónico</label>
+            <input type="email" id="correoElectronico" placeholder="Tu Correo Electrónico">
+        </div>
+    
+        <!-- Cambio de Contraseña -->
+        <div class="grupo-formulario">
+            <label for="nuevaContrasena">Nueva Contraseña</label>
+            <input type="password" id="nuevaContrasena" placeholder="Nueva Contraseña">
+        </div>
+    
+        <!-- Botón Guardar Cambios -->
+        <button type="button" class="btn-guardar" onclick="guardarCambios()">Guardar Cambios</button>
+    
+        <!-- Contador de Sesiones -->
+        <div class="sesion-contador" id="contadorSesion">
+            Has iniciado sesión 0 veces.
+        </div>
+    </div>
+
+    
+
+    <script src="{{ url_for('static', filename='js/configuracion.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+  
+</body>
+</html>

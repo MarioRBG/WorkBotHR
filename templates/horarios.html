@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gestion humana, HTML, html5, software, css, js, proyecto, empresa">
+    <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
+    <title>Human Intelligence Resources - Horarios / Asistencia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
+    
+</head>
+<body>
+    <!-- BOTONES PARTE SUPERIOR DEL HOME -->
+    <header id="areaDconfiguracion">
+        <h2>{{ nom_completo }}</h2>
+
+
+        <div id="usuarioP">
+            <a href="{{ url_for('configuracion_Perfil_Usuario') }}">
+
+                <img src="{{ url_for('static', filename='imagenes/perfil.PNG') }}" alt="Logo">
+            </a>
+        </div>
+    </header>
+    <br>
+
+    <!-- MENU LATERAL -->
+    <nav class="menuLateral">
+        <div class="logo">
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='imagenes/logo.PNG') }}" alt="Logo" width="150" height="150"></a>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home') }}" id="home"><img src="{{ url_for('static', filename='assets/home.svg') }}">Inicio</a></li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/empleado.svg') }}">Empleados</a>
+                <ul class="submenu empleados">
+                    <li><a href="{{ url_for('empleados') }}">Empleados</a></li>
+                    <li><a href="{{ url_for('nomina') }}">Nómina</a></li>
+                    <li><a href="{{ url_for('beneficios') }}">Beneficios</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/talento.svg') }}">Gestión de Talento</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('gestiondetalentos') }}">Area Principal</a></li>
+                    <li><a href="{{ url_for('reclutamiento') }}">Reclutamiento</a></li>
+                    <li><a href="{{ url_for('seleccion_de_personal') }}">Selección del Personal</a></li>
+                    <li><a href="{{ url_for('capacitacion') }}">Capacitación</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/horarios.svg') }}">Horario</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('horarios') }}">Asistencia</a></li>
+                    <li><a href="{{ url_for('horario_empleado') }}">Horarios de Empleados</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/politicas.svg') }}">Política</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('politica') }}">Riesgos Laborales</a></li>
+                    <li><a href="{{ url_for('rendimiento') }}">Metas</a></li>
+                    <li><a href="{{ url_for('seguridad') }}">Seguridad</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Header con título y controles -->
+        <div class="header-section">
+            <h2>Control de Asistencia</h2>
+            <div class="controls">
+                <button id="btnNuevaEntrada" class="btn-primary">
+                    <i class="fas fa-plus-circle"></i>
+                    Nueva Entrada
+                </button>
+                <div class="filter-wrapper">
+                    <select id="filterDate" class="select-custom">
+                        <option value="all">Todas las fechas</option>
+                        <option value="today">Hoy</option>
+                        <option value="week">Esta semana</option>
+                        <option value="month">Este mes</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Formulario para nueva entrada (inicialmente oculto) -->
+        <div id="entryForm" class="entry-form hidden">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="date" id="fecha" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Matrícula</label>
+                    <input type="text" id="matricula" class="form-control" placeholder="Ej: A12345">
+                </div>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" class="form-control" placeholder="Nombre completo">
+                </div>
+                <div class="form-group">
+                    <label>Hora Entrada</label>
+                    <input type="time" id="horaEntrada" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Hora Salida</label>
+                    <input type="time" id="horaSalida" class="form-control">
+                </div>
+                <div class="form-actions">
+                    <button id="btnGuardar" class="btn-success">Guardar</button>
+                    <button id="btnCancelar" class="btn-secondary">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Tabla de registros -->
+        <div class="table-asistencia">
+            <table id="registrosTable" class="table-records">
+                <thead>
+                    <tr>
+                    <th>Fecha</th>
+                    <th>Matrícula</th>
+                    <th>Nombre</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                    <th>Total Horas</th>
+                    <th>Eliminar Registro</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+    <script src="{{ url_for('static', filename='js/tablaAsistencia.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    
+    </body>
+</html>

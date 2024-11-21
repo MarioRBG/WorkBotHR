@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gestion humana, HTML, html5, software, css, js, proyecto, empresa">
+    <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
+    <title>Human Intelligence Resources</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/beneficios.js') }}"></script>
+</head>
+<body id="fondo">
+<div id="colorDfondo">
+    <!-- background -->
+    <header id="disenos">
+        <div class="cubos">
+            <img src="{{ url_for('static', filename='imagenes/Cubo1.svg') }}" alt="Cubo1" class="Cubo1">
+            <img src="{{ url_for('static', filename='imagenes/Cubo2.svg') }}" alt="Cubo2" class="Cubo2">
+            <img src="{{ url_for('static', filename='imagenes/Cubo3.svg') }}" alt="Cubo3" class="Cubo3">
+            <img src="{{ url_for('static', filename='imagenes/Cubo4.svg') }}" alt="Cubo4" class="Cubo4">
+        </div>
+        <div class="estrellas">
+            <img src="{{ url_for('static', filename='imagenes/Estrellas.svg') }}" alt="Estrellas" class="estrellas1L">
+            <img src="{{ url_for('static', filename='imagenes/Estrellas.svg') }}" alt="Estrellas" class="estrellas2L">
+            <img src="{{ url_for('static', filename='imagenes/Estrellas.svg') }}" alt="Estrellas" class="estrellas3L">
+            <span class="star star1"></span>
+            <span class="star star2"></span>
+
+        </div>
+    </header>           
+    <main id="containerP">
+        <div class="cajadelogo">
+            <img src="{{ url_for('static', filename='imagenes/logo.svg') }}" alt="logo">
+        </div>
+    </main>
+    <aside>
+        <!-- Boton de inicio -->
+        <form action="#">
+            <a href="{{ url_for('login') }}"><input type="button" value="Inicio sesión" class="button_index"></a>
+        </form>
+    </aside>
+    </div>
+</body>
+</html>

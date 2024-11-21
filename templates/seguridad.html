@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gestion humana, HTML, html5, software, css, js, proyecto, empresa">
+    <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
+    <title>Human Intelligence Resources - Política / Seguridad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/beneficios.js') }}"></script>
+</head>
+<body>
+ <!-- BOTONES PARTE SUPERIOR DEL HOME -->
+ <header id="areaDconfiguracion">
+    <h2>{{ nom_completo }}</h2>
+
+
+    <div id="usuarioP">
+        <a href="{{ url_for('configuracion_Perfil_Usuario') }}">
+
+            <img src="{{ url_for('static', filename='imagenes/perfil.PNG') }}" alt="Logo">
+        </a>
+    </div>
+</header>
+    <br>
+
+    <!-- MENU LATERAL -->
+    <nav class="menuLateral">
+        <div class="logo">
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='imagenes/logo.PNG') }}" alt="Logo" width="150" height="150"></a>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home') }}" id="home"><img src="{{ url_for('static', filename='assets/home.svg') }}">Inicio</a></li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/empleado.svg') }}">Empleados</a>
+                <ul class="submenu empleados">
+                    <li><a href="{{ url_for('empleados') }}">Empleados</a></li>
+                    <li><a href="{{ url_for('nomina') }}">Nómina</a></li>
+                    <li><a href="{{ url_for('beneficios') }}">Beneficios</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/talento.svg') }}">Gestión de Talento</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('gestiondetalentos') }}">Area Principal</a></li>
+                    <li><a href="{{ url_for('reclutamiento') }}">Reclutamiento</a></li>
+                    <li><a href="{{ url_for('seleccion_de_personal') }}">Selección del Personal</a></li>
+                    <li><a href="{{ url_for('capacitacion') }}">Capacitación</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/horarios.svg') }}">Horario</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('horarios') }}">Asistencia</a></li>
+                    <li><a href="{{ url_for('horario_empleado') }}">Horarios de Empleados</a></li>
+                </ul>
+            </li>
+            <li class="main-area">
+                <a href="#"><img src="{{ url_for('static', filename='assets/politicas.svg') }}">Política</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('politica') }}">Riesgos Laborales</a></li>
+                    <li><a href="{{ url_for('rendimiento') }}">Metas</a></li>
+                    <li><a href="{{ url_for('seguridad') }}">Seguridad</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <section class="caja_seguridad">
+            <div class="contenido_seguridad">
+            <h2><b>SEGURIDAD</b></h2>
+            <br>
+            <h3>Objetivo:</h3>
+            <p>El objetivo primordial de esta política es garantizar la seguridad integral de la información en nuestro sistema de gestión de recursos humanos (HIR), salvaguardando la integridad, confidencialidad y disponibilidad de los datos de recursos humanos de nuestra organización.</p>
+            <br>
+            <h3>Alcance:</h3>
+            <p>Esta política se aplica a todos los empleados, contratistas y terceros que acceden, utilizan o administran el software de recursos humanos (HIR) de nuestra organización. Todos los usuarios del software de recursos humanos (HIR) tienen la responsabilidad de cumplir con las políticas y procedimientos de seguridad establecidos en esta política, proteger la información confidencial de los empleados y seguir las mejores prácticas de seguridad de la información.</p>
+            <br>
+            <h3>Medidas de Seguridad:</h3>
+            <p><strong>Autenticación de Dos Factores (2FA):</strong> Se requerirá autenticación de dos factores para acceder al software de recursos humanos (HIR), aumentando así la seguridad de las cuentas de usuario y mitigando el riesgo de acceso no autorizado.</p>
+            <br>
+            <p><strong>Gestión de Contraseñas:</strong> Las contraseñas utilizadas para acceder al software de recursos humanos (HIR) deben ser seguras, únicas y no compartidas entre empleados, siguiendo las directrices de complejidad establecidas en la política de contraseñas de la organización.</p>
+            <br>
+            <p><strong>Control de Acceso Basado en Roles:</strong>  Implementaremos un sistema de control de acceso basado en roles para limitar el acceso a la información según las funciones y responsabilidades del usuario, asegurando que cada usuario solo tenga acceso a los datos necesarios para llevar a cabo sus tareas laborales.</p>
+            <br>
+            <p><strong>Cifrado de Datos:</strong> Todos los datos de recursos humanos almacenados en el software de recursos humanos (HIR) estarán cifrados tanto en reposo como en tránsito, utilizando algoritmos de cifrado robustos para proteger la confidencialidad de la información.</p>
+            <br>
+            <p><strong>Gestión de Parches:</strong> Implementaremos un programa de gestión de parches para aplicar regularmente las últimas actualizaciones de seguridad y parches de software, minimizando así las vulnerabilidades y manteniendo el software de recursos humanos (HIR) actualizado contra las últimas amenazas de seguridad.</p>
+            <br>
+            <h3>Cumplimiento Legal</h3>
+            <p>Nos comprometemos a cumplir con todas las leyes y regulaciones aplicables relacionadas con la privacidad y la seguridad de la información, incluidas GDPR, HIPAA y otras regulaciones locales y sectoriales pertinentes.</p>
+            <br>
+            <h3>Revisión y Actualización</h3>
+            <p>Esta política será revisada y actualizada regularmente para mantenerla al día con los cambios en la tecnología y las mejores prácticas de seguridad de la información, asegurando así que nuestras medidas de seguridad sean siempre eficaces y pertinentes en un entorno en constante evolución.</p>
+            </div>
+        </section>
+        <br>
+    </main>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">  
+    <title>Detalle del Empleado</title>
+</head>
+<body>
+    <div id="detalleEmpleado">
+        <h1>Detalles del Empleado</h1>
+        <p><strong>Nombre:</strong> {{ detalles.Nombre }}</p>
+        <p><strong>Género:</strong> {{ detalles.Genero }}</p>
+        <p><strong>Teléfono:</strong> {{ detalles.Telefono }}</p>
+        <p><strong>Estado Civil:</strong> {{ detalles.EstadoCivil }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ detalles.FechaNacimiento }}</p>
+        <p><strong>Dirección:</strong> {{ detalles.Direccion }}</p>
+        <p><strong>Cargo:</strong> {{ detalles.Cargo }}</p>
+        <p><strong>Área:</strong> {{ detalles.Area }}</p>
+        <p><strong>Fecha de Inicio:</strong> {{ detalles.FechaInicio }}</p>
+        <p><strong>Nivel de Experiencia:</strong> {{ detalles.NivelExperiencia }}</p>
+        <p><strong>Educación:</strong> {{ detalles.Educacion }}</p>
+        <p><strong>Habilidades:</strong> {{ detalles.Habilidades }}</p>
+        <p><strong>Curriculum:</strong> <a href="{{ detalles.Curriculum }}" download>Descargar</a></p>
+        <p><strong>Títulos Académicos:</strong> <a href="{{ detalles.TitulosAcademicos }}" download>Descargar</a></p>
+        <p><strong>Referencias Laborales:</strong> <a href="{{ detalles.ReferenciasLaborales }}" download>Descargar</a></p>
+        <p><strong>Carta de Presentación:</strong> <a href="{{ detalles.CartaPresentacion }}" download>Descargar</a></p>
+        <p><strong>Documento de Identidad:</strong> <a href="{{ detalles.DocumentoIdentidad }}" download>Descargar</a></p>
+    </div>
+</body>
+</html>
