@@ -187,6 +187,10 @@ def seguridad():
 def seleccion_de_personal():
     return render_template('seleccion_de_personal.html', nom_completo=session["nom_completo"])
 
+@app.route('/detalleEmpleado')
+def detalleEmpleado():
+    return render_template('detalleEmpleado.html', nom_completo=session["nom_completo"])
+
 
 
 
