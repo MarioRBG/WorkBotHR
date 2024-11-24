@@ -5,6 +5,7 @@ from flask_mysqldb import MySQL, MySQLdb
 import MySQLdb.cursors
 import hashlib 
 from base64 import b64encode
+from flask import send_from_directory, abort
 
 app = Flask(__name__)
 
@@ -14,6 +15,7 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'workbothr'
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024 * 1024
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
@@ -81,7 +83,6 @@ def configuracion_Perfil_Usuario():
 @app.route('/guardar_empleado', methods=['POST'])
 def guardar_empleado():
     if request.method == 'POST':
-        # Extrae datos del formulario
         nombre = request.form['nombre']
         genero = request.form['genero']
         telefono = request.form['telefono']
@@ -96,7 +97,6 @@ def guardar_empleado():
         educacion = request.form['educacion']
         habilidades = request.form['habilidades']
 
-        # Extrae archivos y conviértelos en binario
         curriculum = request.files['curriculum'].read()
         titulos_academicos = request.files['titulos_academicos'].read()
         referencias_laborales = request.files['referencias_laborales'].read()
@@ -104,10 +104,7 @@ def guardar_empleado():
         documento_identidad = request.files['documento_identidad'].read()
         foto_perfil = request.files['foto_perfil'].read()
         
-        
 
-
-        # Inserta datos en la base de datos
         cursor = mysql.connection.cursor()
         cursor.execute("SET GLOBAL max_allowed_packet=64*1024*1024")
         sql = """
@@ -125,23 +122,39 @@ def guardar_empleado():
         mysql.connection.commit()
 
         return redirect('/empleados')
+
+@app.route('/descargar/<path:filename>')
+def descargar_archivo(filename):
+    uploads = os.path.join(app.root_path, 'static/uploads')
+    try:
+        return send_from_directory(uploads, filename, as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
     
-@app.route('/empleado/<int:EmpleadoID>')
-def empleado_perfil(EmpleadoID):
+    
+@app.route('/detalleEmpleado/<int:empleado_id>', methods=['GET'])
+def detalle_empleado(empleado_id):
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT FotoPerfil FROM empleados WHERE EmpleadoID = %s", (EmpleadoID,))
+    cursor.execute("SELECT * FROM empleados WHERE EmpleadoID = %s", (empleado_id,))
     empleado = cursor.fetchone()
-    if empleado and empleado['FotoPerfil']:
-        Perfil = b64encode(empleado['FotoPerfil']).decode('utf-8')
-        return render_template('empleados.html', Perfil=Perfil)
+    if empleado:
+        return render_template('detalleEmpleado.html', empleado=empleado)
     else:
-        return "Empleado no encontrado", 404    
+        return "Empleado no encontrado", 404
+    
+@app.route('/eliminarEmpleado/<int:empleado_id>', methods=['POST'])
+def eliminar_empleado(empleado_id):
+    cursor = mysql.connection.cursor()
+    cursor.execute("DELETE FROM empleados WHERE EmpleadoID = %s", (empleado_id,))
+    mysql.connection.commit()
+    flash("Empleado eliminado exitosamente.")
+    return redirect(url_for('empleados'))  
 
 @app.route('/empleados')
 def empleados():
     with mysql.connection.cursor() as cursor:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT nombre, correo, cargo, area, direccion, FotoPerfil FROM empleados")
+        cursor.execute("SELECT EmpleadoID, nombre, correo, cargo, area, direccion, FotoPerfil FROM empleados")
         empleados = cursor.fetchall()
     return render_template('empleados.html', empleados=empleados, nom_completo=session["nom_completo"])
 

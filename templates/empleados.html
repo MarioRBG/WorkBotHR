@@ -7,6 +7,7 @@
     <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
     <title>Human Intelligence Resources - Empleados</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imagenes/logoFavicon.ico') }}" type="logoFavicon.ico">
     <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
     <script src="{{ url_for('static', filename='js/beneficios.js') }}"></script>
 </head>
@@ -104,11 +105,23 @@
                 <div class="empleados_P" name="empleados_">
                     <p class="nombre_empleado"> {{ empleado['nombre'] }}</p>
                     <hr>
+                    <p class="EmpleadoID">ID: {{ empleado['EmpleadoID'] }}</p>
                     <p class="correo_empleado">Correo: {{ empleado['correo'] }}</p>
                     <p class="cargo_empleado">Cargo: {{ empleado['cargo'] }}</p>
                     <p class="area_empleado">Área: {{ empleado['area'] }}</p>
                     <p class="direccion_empleado">Dirección: {{ empleado['direccion'] }}</p>
                     <p class="foto_perfil">Dirección: {{ empleado['foto_perfil'] }}</p>
+                    
+                    
+                    <form class="detalleEmpleado" action="{{ url_for('detalle_empleado', empleado_id=empleado['EmpleadoID']) }}" method="GET">
+                        <button type="submit">Ver detalles</button>
+                            </form>
+        
+                    <!-- Botón para eliminar el empleado -->
+                            <form class="BorrarEmpleado"  action="{{ url_for('eliminar_empleado', empleado_id=empleado['EmpleadoID']) }}" method="POST">
+                        <button type="submit">Eliminar</button>
+                        </form>
+
                     
                 </div>
             {% endfor %}

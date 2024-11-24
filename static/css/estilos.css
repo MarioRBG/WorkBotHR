@@ -390,181 +390,6 @@ button:hover {
     }
 }
 
-/* .flujoTrabajo {
-    margin-left: 260px;
-    font-size: 20px;
-}
-
-table {
-    background-color: white;
-}
-
-.Linea1 {
-    border-left: 20px solid #1E96DA;
-}
-
-.Linea2 {
-    border-left: 20px solid #1E96DA;
-}
-
-.Linea3 {
-    border-left: 20px solid #1E96DA;
-}
-
-.Linea4 {
-    border-left: 20px solid #1E96DA;
-}
-
-.contenido {
-    position: absolute;
-    bottom: 15%;
-    right: 20%;
-    margin: 20px auto;
-}
-.contenido table {
-    width: 100%;
-    border-collapse: collapse;
-}
-.contenido th, .contenido td {
-    border: 1px solid #dee2e6;
-    padding: 10px;
-    text-align: center;
-}
-
-.Estado {
-    background-color: #6DD16B;
-}
-
-.Estado2 {
-    background-color: #F45959;
-}
-
-.Estado3 {
-    background-color: #F9B551;
-}
-
-.Propiedad {
-    background-color: #F45959;
-}
-
-.Propiedad2 {
-    background-color: #F9B551;
-}
-
-.Propiedad3 {
-    background-color: #6DD16B;
-}
-
-.task-table {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-left: 260px;
-    margin-right: 5px;
-}
-
-.task-table h2 {
-    margin-top: 0;
-}
-
-#taskTable {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#taskTable th, #taskTable td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-#taskTable th {
-    background-color: #03312A;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-#taskTable tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#taskTable tr:hover {
-    background-color: #ddd;
-}
-
-.status.listo {
-    color: white;
-    background-color: green;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.status.pendiente {
-    color: white;
-    background-color: orange;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.status.incompleto {
-    color: white;
-    background-color: red;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.priority.alta {
-    color: white;
-    background-color: red;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.priority.media {
-    color: white;
-    background-color: orange;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.priority.baja {
-    color: white;
-    background-color: green;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.progress {
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 10px;
-    background-color: #207468;
-    border-radius: 5px;
-}
-
-.add-task {
-    background-color: #207468;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.add-task:hover {
-    background-color: #10534F;
-} */ 
-
 /* ---------------------------------------------------------------------------- */
 
 /*LOADING PAGE - MARIO*/
@@ -1229,26 +1054,26 @@ table {
 }
 
 
-/*========================CREACION DEMPLEADOS=========================================*/
+/*========================CREACION DE EMPLEADOS- MARIO =========================================*/
 /* Estilos básicos para la estructura */
+
 #creacionD_Empleados{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 80%;
+    height: 87.5%;
     position: absolute;
-    top: 15%;
-    left: 19.5%;
-    background-color: #CCE7FB;
-    box-shadow: 0 2px 3px 2px rgba(88, 122, 124, 0.5);
-    border-radius: 10px;
+    top: 12%;
+    left: 18.5%;
+    box-shadow: 0 2px 3px 2px rgba(88, 122, 124, 0.5);   
+    
 }
 
 .titulo_cempleados{
     position: absolute;
-    bottom: 90%;
+    bottom: 91.5%;
     right: 19.5%;
     width: 80%;
     border-radius: 10px;
@@ -1261,20 +1086,6 @@ table {
 
 }
 
-.button_eliminar_cempleado{
-    position: absolute;
-    padding: 10px;
-    top: 90%;
-    right: 4%;
-    
-}
-
-.button_guardar_cempleado{
-    position: absolute;
-    top: 90%;
-    left: 65%;
-    padding: 10px;
-}
 
 .BuCempleados{
     background-color: #03312A;
@@ -1283,139 +1094,66 @@ table {
     border: none;
     font-weight: bold;
     font-size: 15px;
-    width: 15%;
+    width: 50%;
+    padding: 15px;
     cursor: pointer;
     transition: 650ms all;
+    margin: 10px;
+    letter-spacing: 3.5px;
 }
 
 .BuCempleados:hover{
     background-color: #1E981B;
 }
 
+.button_eliminar_cempleado:hover {
+    background-color: rgb(187, 0, 0);
+}
 
-.perfil_creacion{
+
+
+#creacionEmpleados{
     display: flex;
+    height: 75%;
+    width: 95%;
     flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
+    align-items: flex-start;
 }
 
-.perfil_creacion label{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 58%;
-    left: 40%;
-}
-
-#preview{
-    position: absolute;
-    bottom: 67%;
-    left: 45%;
-    border-radius: 10px;
-    box-shadow: 0 0 0 10px white;
-}
-
-
-.C_empleados{
-    position: absolute;
-    top: 35%;
-    width: 94%;
-    height: 100%;
-    padding: 20px;
+#creacionEmpleados label {
+    font-weight: 700;
+    width: 40%;
+    margin-bottom: 5px;
+    letter-spacing: 3.5px;
     
+
 }
 
-.C_empleados button{
-    padding: 8px;
-    width: 22%;
-    background-color: #4A57CC;
+#creacionEmpleados input{
+    width: 90%;
+    border-radius: 2px;
+    background-color: none;
     border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 15px ;
-    cursor: pointer;
-    transition: 650ms all;
-}
-
-.C_empleados button:focus{
-    background-color: #1E981B;
-}
-
-.C_empleados form{
+    box-shadow: 1px 1px 3px;
     margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    border-image: linear-gradient(to right, #797979, #666666) 1;
-    padding: 20px;
-    position: absolute;
-    width: 65%;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+
 }
 
-#informacion_personal{
-    position: absolute;
-    left: 1%;
-    top: 40%;
+#creacionEmpleados select{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    background-color: none;
+    border: none;
+    box-shadow: -1px 1px 3px;
 }
 
-#informacion_laboral{
-    position: absolute;
-    left: 25%;
-    top: 40%;
-}
-
-#documentos{
-    position: absolute;
-    left: 50%;
-    top: 40%;
-}
-
-#notas{
-    position: absolute;
-    left: 75%;
-    top: 40%;
-}
-
-#informacion_personal_form input{
-    font-weight: bold;
-    margin: 4.5px;
-    width: 35%
-}
-
-#informacion_laboral_form input{
-    font-weight: bold;
-    margin: 4.5px;
-    width: 35%
-}
-
-#documentos_form{
-    width: 50%
-}
-
-#documentos_form input{
-    font-weight: bold;
-    margin: 4.5px;
-    width: 32%;
-    text-align: left
-}
-
-#notas_form{
-    width: 23%;
-}
-
-#notas_form input{
-    font-weight: bold;
-    margin: 4.5px;
-    width: 35%
-}
-
-#creacionD_Empleados form {
-    display: none;
-}
-#informacion_personal_form {
-    display: block;
+#creacionD_Empleados::-webkit-scrollbar {
+    width: 0;
 }
 
 /* =======================DISENO SUBAREA ASISTENCIA================================== */
@@ -2720,187 +2458,6 @@ tbody tr:nth-child(even) {
 }
 
 
-/*========================CREACION DEMPLEADOS=========================================*/
-/* Estilos básicos para la estructura - MARIO */
-#creacionD_Empleados{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 15%;
-    left: 19.5%;
-    background-color: #CCE7FB;
-    box-shadow: 0 2px 3px 2px rgba(88, 122, 124, 0.5);
-    border-radius: 10px;
-}
-
-.titulo_cempleados{
-    position: absolute;
-    top: 1%;
-    right: 19.5%;
-    width: 80%;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 10px;
-    background-color: rgba(32, 86, 78, 0.7);
-    box-shadow: 0 3px 2px rgba(88, 122, 124, 0.5);
-
-}
-
-.button_eliminar_cempleado{
-    position: absolute;
-    padding: 10px;
-    top: 90%;
-    right: 4%;
-    
-}
-
-.button_guardar_cempleado{
-    position: absolute;
-    top: 90%;
-    left: 65%;
-    padding: 10px;
-}
-
-.BuCempleados{
-    background-color: #03312A;
-    color: white;
-    border-radius: 15px;
-    border: none;
-    font-weight: bold;
-    font-size: 15px;
-    width: 15%;
-    cursor: pointer;
-    transition: 650ms all;
-}
-
-.BuCempleados:hover{
-    background-color: #1E981B;
-}
-
-
-.perfil_creacion{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-}
-
-.perfil_creacion label{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 40%;
-    left: 40%;
-}
-
-#preview{
-    position: absolute;
-    bottom: 50%;
-    left: 45%;
-    border-radius: 10px;
-    box-shadow: 0 0 0 10px white;
-}
-
-
-.C_empleados{
-    position: absolute;
-    top: 35%;
-    width: 94%;
-    height: 100%;
-    padding: 20px;
-    
-}
-
-.C_empleados button{
-    padding: 8px;
-    width: 22%;
-    background-color: #4A57CC;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 15px ;
-    cursor: pointer;
-    transition: 650ms all;
-}
-
-.C_empleados button:active, .C_empleados button:focus{
-    background-color: #1E981B;
-}
-
-.C_empleados form{
-    margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    border-image: linear-gradient(to right, #797979, #666666) 1;
-    padding: 20px;
-    position: absolute;
-    width: 65%;
-}
-
-#informacion_personal{
-    position: absolute;
-    left: 2%;
-    top: 20%;
-}
-
-#informacion_laboral{
-    position: absolute;
-    left: 35%;
-    top: 20%;
-}
-
-#documentos{
-    position: absolute;
-    left: 65%;
-    top: 20%;
-}
-
-
-#informacion_personal_form input{
-    font-weight: bold;
-    margin: 4.5px;
-    width: 100%
-}
-
-#informacion_laboral_form input{
-    font-weight: bold;
-    margin: 5.5px;
-    width: 100%
-}
-
-#informacion_personal_form{
-    width: 35%;
-}
-
-#informacion_laboral_form{
-    width: 35%;
-}
-
-#documentos_form{
-    width: 35%;
-}
-
-#documentos_form input{
-    font-weight: bold;
-    margin: 4.5px;
-    width: 85%;
-    text-align: left
-}
-
-#creacionD_Empleados form {
-    display: block;
-}
-#informacion_personal_form {
-    display: block;
-}
 
 /* ============================================================================================= */
 /* ----------DISEÑO SUBAREA SEGURIDAD, AREA POLITICA (AZAEL) ------------- */
