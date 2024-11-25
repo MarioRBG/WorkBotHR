@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,21 +73,21 @@
 
       <div id="botones_gestion">
         <div class="reclutamiento_gestion">
-          <a href="reclutamiento.html"><button>Reclutamiento</button></a>
+          <a href="{{ url_for('reclutamiento') }}"><button>Reclutamiento</button></a>
           <div id="contador_reclutamiento">
 
           </div>
         </div>
 
         <div class="selecciondepersonal_gestion">
-          <a href="seleccion_de_personal.html"><button>Seleccion de personal</button></a>
+          <a href="{{ url_for('seleccion_de_personal') }}"><button>Selección de personal</button></a>
           <div id="contador_personal">
 
           </div>
         </div>
 
         <div class="capacitacion_gestion">
-          <a href="capacitacion.html"><button>Capacitación</button></a>
+          <a href="{{ url_for('capacitacion') }}"><button>Capacitación</button></a>
           <div id="contador_capacitacion">
 
           </div>

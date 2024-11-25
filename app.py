@@ -1,11 +1,14 @@
 import mysql
 import os
-from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify,send_file,Response
 from flask_mysqldb import MySQL, MySQLdb
 import MySQLdb.cursors
 import hashlib 
 from base64 import b64encode
 from flask import send_from_directory, abort
+import pandas as pd
+import tempfile
+
 
 app = Flask(__name__)
 
@@ -28,6 +31,7 @@ def encrypt_password(password):
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -52,11 +56,6 @@ def login():
             msg = 'Nombre de usuario o contraseña incorrectos!'
             
     return render_template('login.html', msg=msg)
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('login'))
 
 @app.route('/nomina')
 def nomina():
@@ -122,15 +121,42 @@ def guardar_empleado():
         mysql.connection.commit()
 
         return redirect('/empleados')
-
-@app.route('/descargar/<path:filename>')
-def descargar_archivo(filename):
-    uploads = os.path.join(app.root_path, 'static/uploads')
-    try:
-        return send_from_directory(uploads, filename, as_attachment=True)
-    except FileNotFoundError:
-        abort(404)
     
+    
+@app.route('/descargar_empleados')
+def descargar_empleados():
+    try:
+        # Conexión y consulta
+        cursor = mysql.connection.cursor()
+        query = """
+        SELECT EmpleadoID, Nombre, Genero, Telefono, EstadoCivil, FechaNacimiento, 
+               Direccion, Cargo, Area, FechaInicio, NivelExperiencia, Educacion, Habilidades 
+        FROM empleados
+        """
+        cursor.execute(query)
+        data = cursor.fetchall()
+        columns = [
+            'EmpleadoID', 'Nombre', 'Genero', 'Telefono', 'EstadoCivil',
+            'FechaNacimiento', 'Direccion', 'Cargo', 'Area', 'FechaInicio',
+            'NivelExperiencia', 'Educacion', 'Habilidades'
+        ]
+
+        # Crear un DataFrame
+        df = pd.DataFrame(data, columns=columns)
+
+        # Crear un archivo temporal
+        temp_file = tempfile.NamedTemporaryFile(suffix=".xlsx", delete=False)
+        filepath = temp_file.name
+        df.to_excel(filepath, index=False)
+
+        # Cerrar el cursor
+        cursor.close()
+
+        # Enviar el archivo como descarga
+        return send_file(filepath, as_attachment=True, download_name="empleados.xlsx")
+
+    except Exception as e:
+        return f"Error al generar el archivo Excel: {e}", 500
     
 @app.route('/detalleEmpleado/<int:empleado_id>', methods=['GET'])
 def detalle_empleado(empleado_id):

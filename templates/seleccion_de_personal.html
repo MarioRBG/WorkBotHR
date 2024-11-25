@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,19 +74,15 @@
         <div class="AccesoRapidoReclutamiento">
 
             <div class="AccesoRapidoReclutamiento_Reclutamiento">
-                <a href="reclutamiento.html">Reclutamiento <img src="/assets/AccesoRapidoReclutamiento.svg" alt=""></a>
+                <a href="{{ url_for('reclutamiento') }}">Reclutamiento <img src="/assets/AccesoRapidoReclutamiento.svg" alt=""></a>
             </div>
 
             <div class="AccesoRapidoReclutamiento_SDP">
-                <a href="seleccion_de_personal.html">Seleccion de personal<img src="/assets/AcessoRapidoSelecciondepersonal.svg" alt=""></a>
+                <a href="{{ url_for('seleccion_de_personal') }}">Seleccion de personal<img src="/assets/AcessoRapidoSelecciondepersonal.svg" alt=""></a>
             </div>
 
             <div class="AccesoRapidoReclutamiento_capa">
-                <a href="capacitacion.html">Capacitación<img src="/assets/AcessoRapidoCapacitacion.svg" alt=""></a>
-            </div>
-
-            <div id="mensajeria">
-                <a href=""><img src="/assets/Mensajeria.svg" alt=""></a>
+                <a href="{{ url_for('capacitacion') }}">Capacitación<img src="/assets/AcessoRapidoCapacitacion.svg" alt=""></a>
             </div>
 
         </div>

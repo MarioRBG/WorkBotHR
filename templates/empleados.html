@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="gestion humana, HTML, html5, software, css, js, proyecto, empresa">
-    <meta name="description" content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
+    <meta name="description"
+        content="Optimice la gestión del talento humano y impulse el éxito de su organización con nuestro innovador proyecto de gestión humana.">
     <title>Human Intelligence Resources - Empleados</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='imagenes/logoFavicon.ico') }}" type="logoFavicon.ico">
     <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
     <script src="{{ url_for('static', filename='js/beneficios.js') }}"></script>
 </head>
+
 <body>
     <header id="areaDconfiguracion">
         <h2>{{ nom_completo }}</h2>
@@ -27,10 +30,12 @@
     <!-- MENU LATERAL -->
     <nav class="menuLateral">
         <div class="logo">
-            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='imagenes/logo.PNG') }}" alt="Logo" width="150" height="150"></a>
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='imagenes/logo.PNG') }}" alt="Logo"
+                    width="150" height="150"></a>
         </div>
         <ul>
-            <li><a href="{{ url_for('home') }}" id="home"><img src="{{ url_for('static', filename='assets/home.svg') }}">Inicio</a></li>
+            <li><a href="{{ url_for('home') }}" id="home"><img
+                        src="{{ url_for('static', filename='assets/home.svg') }}">Inicio</a></li>
             <li class="main-area">
                 <a href="#"><img src="{{ url_for('static', filename='assets/empleado.svg') }}">Empleados</a>
                 <ul class="submenu empleados">
@@ -65,11 +70,11 @@
             </li>
         </ul>
     </nav>
-    
+
     <main id="contenedorP_empleados">
 
         <div class="areaDayuda">
-            <select name="" id="" class=""> 
+            <select name="" id="" class="">
                 <option value="">Filtros</option>
                 <option value="">------------------------------</option>
                 <option value="">Cargos</option>
@@ -78,57 +83,62 @@
         </div>
 
         <div class="registros">
-                <a href="{{ url_for('creacionEmpleados') }}">
-                    <img src="{{ url_for('static', filename='icons/solar_add-circle-outline.svg') }}" alt="" class="icon-nuevoregistro">
-                     <span>Nuevo Registro</span>
-                    </a>
-                <a href="">
-                    <img src="{{ url_for('static', filename='icons/vscode-icons_file-type-excel.svg') }}" alt="" class="icon-empleadosexcel">
-                    <span>Empleados Por Excel</span>
-                </a>
+            <a href="{{ url_for('creacionEmpleados') }}">
+                <img src="{{ url_for('static', filename='icons/solar_add-circle-outline.svg') }}" alt=""
+                    class="icon-nuevoregistro">
+                <span>Nuevo Registro</span>
+            </a>
+            <a href="{{ url_for('descargar_empleados') }}">
+                <img src="{{ url_for('static', filename='icons/vscode-icons_file-type-excel.svg') }}" alt=""
+                    class="icon-empleadosexcel">
+                <span>Empleados Por Excel</span>
+            </a>
         </div>
 
         <div class="buscador_empleados">
-            <form action="">
-                <img src="{{ url_for('static', filename='icons/Component 12.svg') }}" alt="search" class="icon-buscador">
-                <input type="search" name="buscador" id="buscador" placeholder="Buscador" class="seach-input">
-            </form>
+            
+                <form action="">
+                    <img src="{{ url_for('static', filename='icons/Component 12.svg') }}" alt="search" class="icon-buscador">
+                    <input type="search" name="buscador" id="buscador" placeholder="Buscador" class="search-input">
+                </form>
+            
         </div>
+
         
+
         <div class="titulo_empleados">
             <h1><img src="{{ url_for('static', filename='icons/Vector (1).svg') }}" alt="">Listado de empleados</h1>
         </div>
 
-        
+
         <div id="listaDempleados">
             {% for empleado in empleados %}
-                <div class="empleados_P" name="empleados_">
-                    <p class="nombre_empleado"> {{ empleado['nombre'] }}</p>
-                    <hr>
-                    <p class="EmpleadoID">ID: {{ empleado['EmpleadoID'] }}</p>
-                    <p class="correo_empleado">Correo: {{ empleado['correo'] }}</p>
-                    <p class="cargo_empleado">Cargo: {{ empleado['cargo'] }}</p>
-                    <p class="area_empleado">Área: {{ empleado['area'] }}</p>
-                    <p class="direccion_empleado">Dirección: {{ empleado['direccion'] }}</p>
-                    <p class="foto_perfil">Dirección: {{ empleado['foto_perfil'] }}</p>
-                    
-                    
-                    <form class="detalleEmpleado" action="{{ url_for('detalle_empleado', empleado_id=empleado['EmpleadoID']) }}" method="GET">
-                        <button type="submit">Ver detalles</button>
-                            </form>
+            <div class="empleados_P" name="empleados_">
+                <p class="nombre_empleado"> {{ empleado['nombre'] }}</p>
+                <hr>
+                <p class="EmpleadoID">ID: {{ empleado['EmpleadoID'] }}</p>
+                <p class="correo_empleado">Correo: {{ empleado['correo'] }}</p>
+                <p class="cargo_empleado">Cargo: {{ empleado['cargo'] }}</p>
+                <p class="area_empleado">Área: {{ empleado['area'] }}</p>
+                <p class="direccion_empleado">Dirección: {{ empleado['direccion'] }}</p>
+                <p class="foto_perfil">{{ empleado['foto_perfil'] }}</p>
         
-                    <!-- Botón para eliminar el empleado -->
-                            <form class="BorrarEmpleado"  action="{{ url_for('eliminar_empleado', empleado_id=empleado['EmpleadoID']) }}" method="POST">
-                        <button type="submit">Eliminar</button>
-                        </form>
-
-                    
-                </div>
+                <form action="{{ url_for('detalle_empleado', empleado_id=empleado['EmpleadoID']) }}" method="GET">
+                    <button class="detalleEmpleado" type="submit">Ver detalles</button>
+                </form>
+        
+                <form action="{{ url_for('eliminar_empleado', empleado_id=empleado['EmpleadoID']) }}" method="POST">
+                    <button class="BorrarEmpleado" type="submit"></button>
+                </form>
+            </div>
             {% endfor %}
         </div>
-            
+
     </main>
 
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/empleadoB.js') }}"></script>
+    
 </body>
+
 </html>

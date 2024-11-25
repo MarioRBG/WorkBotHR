@@ -332,7 +332,7 @@ input[type="text"], select, input[type="date"] {
     padding: 5px;
     box-sizing: border-box;
 }
-button {
+.seUsanClasesParaEsto {
     background-color: #4CAF50;
     color: white;
     padding: 3px 8px;
@@ -341,7 +341,7 @@ button {
     margin-right: 5px;
     font-size: 0.9em;
 }
-button:hover {
+.seUsanClasesParaEsto:hover {
     opacity: 0.8;
 }
 .completed {
@@ -872,7 +872,7 @@ button:hover {
     justify-content: space-evenly;
     flex-wrap: wrap;
     position: fixed;
-    top: 37%;
+    top: 35.5%;
     left: 16%;
     width: 85%;
     height: 65%;
@@ -894,15 +894,24 @@ button:hover {
     width: 40%;
     height: 50%;
     border-radius: 20px;
+    
 }
 
 .empleados_P p{
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bolder;
-    width: 40%;
+    width: 50%;
     margin: auto;
-    padding: 5px;
+    color: white;
+    text-shadow: 0px 2px 1px rgb(81, 81, 81);
+    letter-spacing: 1px;
 
+}
+
+.empleados_P p:first-child{
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px rgb(81, 81, 81);
 }
 
 .registros a{
@@ -914,6 +923,36 @@ button:hover {
     border-radius: 20px;
     margin: 20px;
 }
+
+.detalleEmpleado{
+    position: relative;
+    top: 10%;
+    left: 3%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: none;
+    border: none;
+    cursor: pointer;
+}
+
+.BorrarEmpleado{
+    position: relative;
+   
+    left: 92%;
+    padding: 21px;
+    background: url(/static/imagenes/Eliminar.svg) no-repeat;  
+    background-size: 35px;
+    background-position: right;
+    border: none;
+    cursor: pointer;
+    transition: 1s all;
+    
+}
+
+.BorrarEmpleado:hover{
+ transform: scale(1.2);
+}
+
 
 
 
