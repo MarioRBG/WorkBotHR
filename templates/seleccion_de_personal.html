@@ -103,16 +103,25 @@
             
             </div>
 
-        <div id="AreadeAspirantes_entrevistas">
+            <div id="AreadeAspirantes_entrevistas">
                 <h3>Entrevistas</h3>
             <div id="AreadeEntrevistas">
                 <div id="CajadeEntrevistas">
-                <div id="id:correoReclutamiento">Correo:JAJAJ@HOTMAIL.COM</div>
-                <div id="id:AreaReclutamiento">Area:Contable</div>
+                        <form action="/agregar" method="POST">
+                            <input type="text" name="nombre" placeholder="Nombre" required>
+                            <input type="text" name="cargo" placeholder="Cargo" required>
+                            <input type="text" name="area" placeholder="Área" required>
+                            <input type="date" name="fecha_entrevista" placeholder="Fecha de la Entrevista" required>
+                            <input type="tel" name="telefono" placeholder="Teléfono" required>
+                            <button type="submit">Agregar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </main>
+
+    
+    
 </body>
 </html>

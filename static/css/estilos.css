@@ -1195,6 +1195,179 @@ input[type="text"], select, input[type="date"] {
     width: 0;
 }
 
+/* ============================================================================================ */
+  /* DISEÑO SUBAREA CAPACITACION, AREA GESTION DE TALENTO (AZAEL)   */
+
+
+  #titulo-gestion-talent {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #03312A; /* Cambiar según el diseño */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    margin-top: -50%; /* Espacio opcional superior dentro del main */
+}
+
+/* Estilo para el contenedor de noticias y recordatorios */
+.panel-contenedor {
+    
+    display: flex;
+    justify-content: flex-end;
+    gap: 80px;
+    padding: 0 20px;
+
+}
+
+.noticias-panel {
+    position: absolute;
+    top: 22%;
+    right: 38%;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 110px;
+    margin-left: -169px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #03312A;
+    width: 60%;
+}
+
+.recordatorios-panel {
+    position: absolute;
+    top: 42%;
+    left: 63%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.1);
+    border-right: 2px solid #2A0331;
+}
+
+.recordatorios-list{
+    width: 50%;
+    height: auto;
+}
+
+.noticias-panel h3,
+.recordatorios-panel h3 {
+    margin-bottom: 15px;
+}
+
+.noticias-list li,
+.recordatorios-list li {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+.link-detalles {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.link-detalles:hover {
+    text-decoration: underline;
+}
+
+.contenido-expandido {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.recordatorio-form {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.recordatorio-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.recordatorio-form button {
+    background-color: #2A0331;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.recordatorio-form button:hover {
+    background-color: #3b0447;
+}
+
+.eliminar-recordatorio {
+    color: #dc3545;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .panel-contenedor {
+        flex-direction: column;
+    }
+
+    .noticias-panel,
+    .recordatorios-panel {
+        max-width: 100%;
+    }
+}
+/*********/
+
+  .emailReclutamiento-capacitacion {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: justify;
+    margin-left: 300px;
+    margin-right: 30px;
+}
+
+.cuadro-capacitacion {
+    background-color: #96D5E9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+    text-align: justify;
+    margin-left: 10px;
+    margin-right: 500px;
+}
+
+.nombre-capacitacion {
+    margin-left: -90px;
+}
+
+.area-capacitacion {
+    margin-left: -90px;
+}
+
+.cargo-capacitacion {
+    margin-left: -90px;
+}
+
+.lineavertical-capacitacion {
+    float: right;
+    position: absolute;
+    right: 790px;
+    top: 200px;
+    transform: translate(-50%, 0);
+}
+
+
 /* =======================DISENO SUBAREA ASISTENCIA================================== */
 
 :root {
@@ -1383,31 +1556,162 @@ input[type="text"], select, input[type="date"] {
 }
 
 
-/* ------------------Tabla de horario de asistencia AMBAR */
-.ordenar_asistencia{
-    margin-left: 20%;
+/*==================HORARIO DE ASISTENCIA================*/
+.contenedor-horario {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-#dataTable {
-    width: 75%; /* Ajusta el ancho del contenido según necesites */
-    margin: 2% 20%; /* Centra el contenedor horizontalmente */
-    padding: 20px 10px; /* Espacio interior del contenedor */
-    border-collapse: collapse;
-
+.panel-formulario {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    margin-left: 200px;
 }
 
-#dataTable, th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center; /* Centrar texto en celdas */
+.formulario-empleado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
-thead {
-    background-color: lightgray; /* Fondo de la cabecera */
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Fondo de filas pares */
+.etiqueta {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2c3e50;
+}
+
+.entrada {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.entrada:focus {
+    border-color: #025043;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(2, 80, 67, 0.1);
+}
+
+.selector-horario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.dia-horario {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.tabla-horario {
+    width: 83%; 
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-left: 200px; 
+    font-size: 0.9rem; 
+}
+
+.tabla-horario th {
+    background: #025043;
+    color: white;
+    padding: 0.5rem; /* Reducido de 1rem */
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem; /* Añadido para reducir el tamaño de fuente */
+}
+
+.tabla-horario td {
+    padding: 0.5rem; /* Reducido de 1rem */
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-horario tr:hover {
+    background: #f8fafc;
+}
+
+.celda-empleado {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Reducido de 1rem */
+    padding: 0.3rem 0; /* Añadido para reducir el espacio vertical */
+}
+
+.estado-horario {
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.estado-presencial {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.estado-descanso {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.botones-accion {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.boton {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.boton-primario {
+    background: #025043;
+    color: white;
+}
+
+.boton-primario:hover {
+    background: #037a63;
+}
+
+.boton-secundario {
+    background: green;
+    border: 1px solid #e2e8f0;
+}
+
+.boton-secundario:hover {
+    background: #f5f7fa;
+}
+
+@media (max-width: 768px) {
+    .formulario-empleado {
+        grid-template-columns: 1fr;
+    }
+
+    .selector-horario {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ************************************************************************ */
@@ -2614,166 +2918,224 @@ tbody tr:nth-child(even) {
 
 /*==============================RECLUTAMIENTO====================================*/
 
-#cajaPreclutamiento{
+#cajaPreclutamiento {
     position: absolute;
     top: 10%;
     left: 17%;
     width: 83%;
     height: 90%;
-    box-shadow: 0 0 0 0 grey;
-    
+    background-color: #ffffff;
+    padding: 1.5rem;
+    overflow: hidden;
 }
 
-#cajaPreclutamiento h2{
+#cajaPreclutamiento h2 {
     position: relative;
-    top: 10%;
+    top: 2%;
     left: 0.5%;
-    height: 5%;
-    width: 30%;
+    height: auto;
+    width: auto;
+    padding: 0.8rem 2rem;
     text-align: center;
-    line-height: 30px;
-    font-weight: bold;
+    font-weight: 600;
     color: #03312A;
     background-color: white;
-    box-shadow: 0 2px 1px 1px rgb(182, 182, 182);
-    border-radius: 5px;
-    border-top: none;
-    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    font-size: 1.25rem;
+    display: inline-block;
 }
 
-.AccesoRapidoReclutamiento{
+.AccesoRapidoReclutamiento {
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    
+    margin-top: 2rem;
+    gap: 1rem;
 }
 
-
-.AccesoRapidoReclutamiento a{
+.AccesoRapidoReclutamiento a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
-    line-height: 30px;
+    line-height: 1.2;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.AccesoRapidoReclutamiento div{
-    margin: 10px;
-    transition: 400ms;
+.AccesoRapidoReclutamiento div {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
 }
 
-.AccesoRapidoReclutamiento div:hover{
-    transform: scale(1.1);
+.AccesoRapidoReclutamiento div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-
-.AccesoRapidoReclutamiento_Reclutamiento{
+.AccesoRapidoReclutamiento_Reclutamiento {
     background-color: #FF5050;
-    padding: 10px;
-    border-radius: 10px;
-    
 }
 
-
-.AccesoRapidoReclutamiento_SDP{
+.AccesoRapidoReclutamiento_SDP {
     background-color: #F7A62F;
-    padding: 10px;
-    border-radius: 10px;
 }
 
-.AccesoRapidoReclutamiento_capa{
+.AccesoRapidoReclutamiento_capa {
     background-color: #1D9C1A;
-    padding: 10px;
-    border-radius: 10px;
 }
 
-#CajaSReclutamiento{
+#CajaSReclutamiento {
     display: flex;
     position: absolute;
-    right: 0%;
+    right: 0;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
     height: 80%;
-    box-shadow: 0 2px 10px rgb(0, 0, 0,0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-top: 2rem;
 }
 
-#cajaPreclutamiento h3{
-    font-weight: bold;
-    font-size: 25px;
+#cajaPreclutamiento h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #03312A;
+    margin-bottom: 1.5rem;
 }
 
-#AreadeAspirantes_Reclutamiento{
+#AreadeAspirantes_Reclutamiento {
     display: flex;
     flex-direction: column;
     width: 52%;
     height: 100%;
-    padding: 20px;
+    padding: 2rem;
     overflow: auto;
+    scrollbar-width: none;
 }
 
-#AreadeAspirantes_Reclutamiento::-webkit-scrollbar{
-    width: 0;
-}
-
-#AreadeCurriculum{
+#AreadeCurriculum {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     background-color: RGBA(150, 213, 233, 0.7);
     border-radius: 12px;
-    height: 15%;
-    margin: 5px;
+    height: auto;
+    margin: 0.8rem 0;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+#AreadeCurriculum:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .curriculum_button {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 50%
+    justify-content: center;
+    gap: 1rem;
+    width: 50%;
+    margin-top: 1rem;
 }
 
-.curriculum_aceptar{
-    margin-left: 10px;
+.curriculum_aceptar,
+.curriculum_eliminar {
     background: none;
     border: none;
     cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
 }
 
-.curriculum_eliminar{
-    background: none;
-    border: none;
-    cursor: pointer;
+.curriculum_aceptar:hover,
+.curriculum_eliminar:hover {
+    transform: scale(1.1);
 }
 
-#AreadeAspirantes_Aspirantes{
+#AreadeAspirantes_Aspirantes {
     width: 30%;
     height: 100%;
-    border-left: 1px solid rgb(0, 0, 0,0.1);
-    padding: 20px;
-    overflow: scroll;
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    overflow: auto;
+    scrollbar-width: none;
 }
 
-#AreadeAspirantes_Aspirantes::-webkit-scrollbar {
-    width: 0;
-}
-
-#AreadeAspirantes{
-    height: 80%;
-}
-
-#CajadeAspiranes{
+.caja{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
     background-color: RGBA(150, 213, 233, 0.7);
     border-radius: 12px;
-    height: 15%;
-    margin: 5px;
+    padding: 1.5rem;
+    margin: 0.8rem 0;
+    transition: transform 0.3s ease;
+}
+
+.caja1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: RGBA(150, 213, 233, 0.7);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 0.8rem 0;
+    transition: transform 0.3s ease;
+}
+
+.caja1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+.caja:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 767px) {
+    #cajaPreclutamiento {
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #cajaPreclutamiento h2 {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .AccesoRapidoReclutamiento {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #CajaSReclutamiento {
+        flex-direction: column;
+    }
+
+    #AreadeAspirantes_Reclutamiento,
+    #AreadeAspirantes_Aspirantes {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #AreadeAspirantes_Aspirantes {
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
 }
 
 /*==============================SELECCION DE PERSONAL====================================*/
@@ -2810,7 +3172,7 @@ tbody tr:nth-child(even) {
     justify-content: space-around;
     background-color: RGBA(150, 213, 233, 0.7);
     border-radius: 12px;
-    height: 15%;
+    height: 31%;
     margin: 5px;
 }
 
@@ -2850,65 +3212,87 @@ tbody tr:nth-child(even) {
     height: 80%;
 }
 
-#CajadeEntrevistas{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    background-color: RGBA(150, 213, 233, 0.7);
-    border-radius: 12px;
-    height: 15%;
-    margin: 5px;
-}
 
 /*==============================Capacitacion====================================*/
-#AreadeAspirantes_capacitacion{
+.container-capacitacion {
+    display: flex;
+    position: absolute;
+    left: 3%;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 95%;
+    height: 80%;
+    
+}
+
+.AreadeCurriculumCapacitacion {
     display: flex;
     flex-direction: column;
-    width: 52%;
+    width: 100%;
     height: 100%;
     padding: 20px;
     overflow: auto;
-}
-
-#AreadeAspirantes_capacitacion::-webkit-scrollbar{
-    width: 0;
-}
-
-#AreadeCurriculumCapacitacion{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: RGBA(150, 213, 233, 0.7);
-    border-radius: 12px;
-    height: 40%;
-    margin: 5px;
-    padding: 5px;
-}
-
-#CurriculumCapacitacion{
-    width: 80%;
-    height: 60%;
-}
-
-#CurriculumCapacitacion form{
-    display: flex;
     
-
+    
 }
 
-#CurriculumCapacitacion label{
+.infoReclutamiento {
     display: flex;
-    font-size: 12px;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 6px;
+    background-color: RGBA(150, 213, 233, 0.7);
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px -2px 3px rgb(116, 116, 116);
+    color: #027500;
+    
+}
+
+.infoReclutamiento div {
+    margin: 10px 0;
     font-weight: bold;
-    margin: 5px;
-    height: 60%;
+    margin-bottom: 10px;
 }
 
-#CurriculumCapacitacion input{
+.CurriculumCapacitacion {
+    width: 80%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    background-color: RGBA(150, 213, 233, 0.7);
+    border-radius: 0px 0px 10px 10px;;
+    box-shadow: 0px 2px 3px rgb(116, 116, 116);
+    
 }
+
+.CurriculumCapacitacion form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.CurriculumCapacitacion button{
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+
+}
+
+.formacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+
+.CurriculumCapacitacion label {
+    font-size: 12px;
+    font-weight: normal;
+}
+
 
 

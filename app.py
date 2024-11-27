@@ -8,6 +8,7 @@ from base64 import b64encode
 from flask import send_from_directory, abort
 import pandas as pd
 import tempfile
+from datetime import datetime, timedelta
 
 
 app = Flask(__name__)
@@ -71,9 +72,6 @@ def home():
 def beneficios():
     return render_template('beneficios.html', nom_completo=session["nom_completo"])
 
-@app.route('/capacitacion')
-def capacitacion():
-    return render_template('capacitacion.html', nom_completo=session["nom_completo"])
 
 @app.route('/configuracion_Perfil_Usuario')
 def configuracion_Perfil_Usuario():
@@ -192,6 +190,45 @@ def creacionEmpleados():
 @app.route('/gestiondetalentos')
 def gestiondetalentos():
     return render_template('gestiondetalentos.html', nom_completo=session["nom_completo"])
+
+@app.route('/agregar', methods=['POST'])
+def agregar_datos():
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        cargo = request.form['cargo']
+        area = request.form['area']
+        fecha_entrevista = request.form['fecha_entrevista']
+        telefono = request.form['telefono']
+        fecha_registro = datetime.now()
+
+        cursor = mysql.connection.cursor()
+        cursor.execute('''
+            INSERT INTO entrevistas (nombre, cargo, area, fecha_entrevista, telefono, fecha_registro)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        ''', (nombre, cargo, area, fecha_entrevista, telefono, fecha_registro))
+        mysql.connection.commit()
+        return redirect(url_for('capacitacion'))
+    
+@app.route('/capacitacion')
+def capacitacion():
+    cursor = mysql.connection.cursor()
+    cursor.execute('SELECT * FROM entrevistas')
+    datos = cursor.fetchall()
+
+    # Eliminar registros con más de 24 horas
+    ahora = datetime.now()
+    cursor.execute('DELETE FROM entrevistas WHERE TIMESTAMPDIFF(HOUR, fecha_registro, %s) > 24', (ahora,))
+    mysql.connection.commit()
+
+    return render_template('capacitacion.html', datos=datos,nom_completo=session["nom_completo"])
+
+@app.route('/completar/<int:id>', methods=['POST'])
+def completar(id):
+    cursor = mysql.connection.cursor()
+    cursor.execute('DELETE FROM entrevistas WHERE id = %s', (id,))
+    mysql.connection.commit()
+    flash('Empleado capacitado correctamente', 'success')
+    return redirect(url_for('capacitacion'))
 
 
 @app.route('/horario_empleado')

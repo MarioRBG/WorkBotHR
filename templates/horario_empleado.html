@@ -69,60 +69,51 @@
     </nav>
 
     <!-- titulo de horario -->
-     <h1><i class="fa-solid fa-calendar-day"></i>Horario de Empleados</h1>
+    <div class="contenedor-horario">
+        <div class="panel-formulario">
+            <form id="formularioEmpleado" class="formulario-empleado">
+                <div class="grupo-formulario">
+                    <label class="etiqueta" for="nombre">Nombre del Empleado</label>
+                    <input type="text" id="nombre" class="entrada" required>
+                </div>
+                
+                <div class="grupo-formulario">
+                    <label class="etiqueta" for="departamento">Departamento</label>
+                    <input type="text" id="departamento" class="entrada" required>
+                </div>
 
-    <!-- Ordenar por -->
-    <div class="ordenarPor">
-        <div class="buttons">
-            <button onclick="sortTable(0)">Ordenar por Empleado</button>
-            <button onclick="sortTable(1)">Ordenar por Departamento</button>
-            <button onclick="sortTable(2)">Ordenar por Área</button>
+                <div class="grupo-formulario">
+                    <label class="etiqueta">Tipo de Horario</label>
+                    <select class="entrada" id="tipoHorario">
+                        <option value="regular">Regular (L-V)</option>
+                        <option value="rotativo">Rotativo</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+
+                <div class="botones-accion">
+                    <button type="submit" class="boton boton-primario">Agregar Empleado</button>
+                    <button type="reset" class="boton boton-secundario">Limpiar</button>
+                </div>
+            </form>
         </div>
-    
-        <table id="employeeTable">
+
+        <table class="tabla-horario">
             <thead>
                 <tr>
                     <th>Empleado</th>
-                    <th>Departamento</th>
-                    <th>Área</th>
                     <th>Lunes</th>
                     <th>Martes</th>
                     <th>Miércoles</th>
                     <th>Jueves</th>
                     <th>Viernes</th>
-                    <th>Sábado</th>
-                    <th>Domingo</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Juan Pérez</td>
-                    <td>Recursos Humanos</td>
-                    <td>Reclutamiento</td>
-                    <td>08:00 - 17:00</td>
-                    <td>08:00 - 17:00</td>
-                    <td>08:00 - 17:00</td>
-                    <td>08:00 - 17:00</td>
-                    <td>08:00 - 17:00</td>
-                    <td>Libre</td>
-                    <td>Libre</td>
-                </tr>
-                <tr>
-                    <td>Ana García</td>
-                    <td>Marketing</td>
-                    <td>Publicidad</td>
-                    <td>09:00 - 18:00</td>
-                    <td>09:00 - 18:00</td>
-                    <td>09:00 - 18:00</td>
-                    <td>09:00 - 18:00</td>
-                    <td>09:00 - 18:00</td>
-                    <td>Libre</td>
-                    <td>Libre</td>
-                </tr>
-                <!-- Agrega más filas según sea necesario -->
-            </tbody>
+            <tbody id="cuerpoTabla"></tbody>
         </table>
     </div>
+    
     <script src="{{ url_for('static', filename='js/horario_empleado.js') }}"></script>
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
 </body>

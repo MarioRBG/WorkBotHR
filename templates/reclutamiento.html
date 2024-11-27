@@ -95,25 +95,28 @@
                 <div id="id:AreaReclutamiento">Area:Contable</div>
                 <div class="curriculum_button">
                     <div id="CurriculumReclutamiento"></div>
-                    <button class="curriculum_aceptar"><img src="imagenes/ImagenCheckverde.jpg" alt="" width="60px"></button>
-                    <button class="curriculum_eliminar"><img src="imagenes/ImagenEquisRoja.jpg" alt="" width="60px"></button>
+                    <button class="curriculum_aceptar"><img src="{{ url_for('static', filename='imagenes/ImagenCheckverde.jpg') }}" alt="" width="60px"></button>
+                    <button class="curriculum_eliminar"><img src="{{ url_for('static', filename='imagenes/ImagenEquisRoja.jpg') }}" alt="" width="60px"></button>
                 </div>
             </div>
             
             </div>
         
 
-        <div id="AreadeAspirantes_Aspirantes">
-                <h3>Aspirantes</h3>
+            <div id="AreadeAspirantes_Aspirantes">
+                <h3>Nuevos Aspirantes</h3>
+                <input type="text" id="areaInput" placeholder="Área">
+                <input type="text" id="cargoInput" placeholder="Cargo">
+                <button onclick="agregarDatos()">Agregar</button>
             <div id="AreadeAspirantes">
                 <div id="CajadeAspiranes">
-                    <div id="id:correoReclutamiento" >Correo:JAJAJ@HOTMAIL.COM</div>
-                    <div id="id:AreaReclutamiento" >Area:Contable</div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
       
     </main>
+
+    <script src="{{ url_for('static', filename='js/reclutamiento.js') }}"></script>
 </body>
 </html>

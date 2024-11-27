@@ -88,55 +88,52 @@
 
         <div class="capacitacion_gestion">
           <a href="{{ url_for('capacitacion') }}"><button>Capacitación</button></a>
-          <div id="contador_capacitacion">
-
-          </div>
+          <div id="contador_capacitacion"></div>
+            </div>
         </div>
-
-      </div>
     </div>
 
-    <!-- TABLA FLUJO DE TRABAJO -->
-    <table id="taskTable">
-      <thead>
-        <tr>
-          <th>Completado</th>
-          <th>Elemento</th>
-          <th>Estado</th>
-          <th>Prioridad</th>
-          <th>Fecha</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr id="newTaskRow">
-          <td><input type="checkbox" disabled></td>
-          <td><input type="text" id="newTaskElement" placeholder="Nueva tarea" required></td>
-          <td>
-            <select id="newTaskStatus">
-              <option>Pendiente</option>
-              <option>En Progreso</option>
-              <option>Listo</option>
-            </select>
-          </td>
-          <td>
-            <select id="newTaskPriority">
-              <option>Baja</option>
-              <option>Media</option>
-              <option>Alta</option>
-            </select>
-          </td>
-          <td><input type="date" id="newTaskDate"></td>
-          <td>
-            <button id="saveTaskButton">Guardar</button>
-          </td>
-        </tr>
-      </tfoot>
-      <tbody id="taskTableBody">
-      </tbody>
-    </table>
+    <div class="panel-contenedor">
+    <div class="noticias-panel">
+        <h3>Noticias y Actualizaciones</h3>
+        <ul class="noticias-list">
+            <li>
+                <h4>Nueva política de trabajo remoto</h4>
+                <p>La empresa ha actualizado sus políticas de trabajo remoto.</p>
+                <a class="link-detalles" onclick="toggleContenido(this)">Leer más</a>
+                <div class="contenido-expandido">
+                    La nueva política incluye horarios flexibles, requisitos de conectividad 
+                    y nuevas herramientas de colaboración. Se implementará a partir del próximo mes 
+                    y todos los empleados recibirán capacitación sobre las nuevas herramientas.
+                </div>
+            </li>
+            <li>
+                <h4>Taller de Desarrollo Personal</h4>
+                <p>El próximo taller de desarrollo personal será el 20 de noviembre.</p>
+                <a class="link-detalles" onclick="toggleContenido(this)">Leer más</a>
+                <div class="contenido-expandido">
+                    El taller se enfocará en habilidades de liderazgo y comunicación efectiva. 
+                    Tendrá una duración de 4 horas y será impartido por expertos en desarrollo organizacional. 
+                    Los cupos son limitados, por favor confirmar asistencia.
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="recordatorios-panel">
+        <h3>Recordatorios</h3>
+        <button onclick="agregarRecordatorio()">Agregar</button>    
+        <ul class="recordatorios-list">
+            <li>Revisa evaluaciones de rendimiento de este mes. <span class="eliminar-recordatorio" onclick="eliminarRecordatorio(this)">×</span></li>
+            <li>Capacitación de Comunicación comienza en 3 días. <span class="eliminar-recordatorio" onclick="eliminarRecordatorio(this)">×</span></li>
+        </ul>
+        <div class="recordatorio-form">
+            <input type="text" id="nuevoRecordatorio" placeholder="Agregar nuevo recordatorio">
+            
+        </div>
+    </div>
+</div>
   </main>
-<script src="{{ url_for('static', filename='js/prueba.js') }}"></script>
+<script src="{{ url_for('static', filename='js/gestionNoticias.js') }}"></script>
 <script src="{{ url_for('static', filename='js/header.js') }}"></script>
 </body>
 

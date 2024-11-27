@@ -86,37 +86,57 @@
 
         </div>
         <!--AREA DE TRABAJO, CONFIRMACION DE ENTREVISTAS Y ASISTENCIA OJO (P) (BUTTON) SON REPRESENTACIONES SOBRE LOS CONTENEDORES DE CADA COSA. MAS ADELANTE SE CAMBIARA Y SE PONDRA COMO SE DEBE-->
+        
         <div id="CajaSReclutamiento">
+            <div class="container-capacitacion">
+                <div class="AreadeCurriculumCapacitacion">
+                    
+                    {% for dato in datos %}
+                    
+                    <div class="infoReclutamiento">
+                        <div>Nombre: {{ dato["nombre"] }}</div>
+                        <div>Cargo: {{ dato["cargo"] }}</div>
+                        <div>Área: {{ dato["area"] }}</div>
+                        <div>Fecha de Entrevista: {{ dato["fecha_entrevista"] }}</div>
+                        <div>Teléfono: {{ dato["telefono"] }}</div>
+                    </div>
+                    <div class="CurriculumCapacitacion">
+                            <form action="{{ url_for('completar', id=dato['id']) }}" method="POST">
+                                <div class="formacion">
+                                <label>
+                                    <input type="radio" name="bienvenida" value="1" required> Bienvenida y presentación
+                                </label>
+                                </div>
+                                <div class="formacion">
+                                <label>
+                                    <input type="radio" name="Introducción" value="1" required> Introducción a las políticas
+                                </label>
+                                </div>
+                                <div class="formacion">
+                                <label>
+                                    <input type="radio" name="formacion" value="1" required> Formación en el puesto
+                                </label>
+                                </div>
+                                <div class="formacion">
+                                <label>
+                                    <input type="radio" name="formacionProductos" value="1" required> Formación en productos
+                                </label>
+                                </div>
+                                <div class="formacion">
+                                <label>
+                                    <input type="radio" name="Evaluación" value="1" required> Evaluación y retroalimentación
+                                </label>
+                                </div>
+                                <button type="submit">Finalizar Capacitación</button>
+                            </form>
+                    </div>
+                    
 
-            <div id="AreadeAspirantes_capacitacion">
-
-            <div id="AreadeCurriculumCapacitacion">
-                <div id="id:correoReclutamiento">Nombre: Pepe Quintana</div>
-                <div id="id:AreaReclutamiento">Area: Almacen</div>
-                <div id="id:CargoReclutamiento">Cargo: Director</div>
-                <div class="curriculum_button">
-                    <div id="CurriculumCapacitacion">
-                    <form action="AreaDCapacitacion">
-                        <label for="bienvenida">Bienvenida y presentación</label>
-                        <input type="radio" name="bienvenida" id="">
-
-                        <label for="Introducción">Introducción a las políticas y procedimientos</label>
-                        <input type="radio" name="Introducción" id="">
-
-                        <label for="formacion">Formación en el puesto de trabajo</label>
-                        <input type="radio" name="formacion" id="">
-
-                        <label for="formacionProductos">Formación en productos o servicios</label>
-                        <input type="radio" name="formacionProductos" id="">
-
-                        <label for="Evaluación">Evaluación y retroalimentación</label>
-                        <input type="radio" name="Evaluación" id="">
-                    </form>
+                    {% endfor %}
+                    
                 </div>
             </div>
-            
-            
-            </div>
+        </div>
         
     </main>
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
