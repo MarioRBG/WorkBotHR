@@ -328,7 +328,7 @@ th {
     font-weight: bold;
 }
 input[type="text"], select, input[type="date"] {
-    width: 94%;
+    width: 98%;
     padding: 5px;
     box-sizing: border-box;
 }
@@ -424,11 +424,14 @@ input[type="text"], select, input[type="date"] {
     align-items: center;
     flex-wrap: wrap;
     z-index: 1;
+    overflow: hidden;
 }
 
 .cajadelogo img {
-    max-width: 100%;
-    max-height: 200%;
+    margin-left: 121px;
+    margin-top: 45px;
+    width: 100%;
+    
 }
 
 
@@ -630,6 +633,7 @@ input[type="text"], select, input[type="date"] {
     text-align: center;
     cursor: pointer;
     margin-right: 50px;
+    margin-left: 84px;
     transition: 1s;
     box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.2);
     font-size: 16px;
@@ -737,7 +741,7 @@ input[type="text"], select, input[type="date"] {
     padding: 10px 20px;
     position: relative;
     left: 17.9%; /* para cambiar el ancho de la barra*/
-    width: calc(92.7% - 190px); 
+    width: calc(102% - 190px); 
     align-items: center;
 }
 
@@ -807,7 +811,7 @@ input[type="text"], select, input[type="date"] {
 }
 
 .titulo_empleados h1{
-    background-color: rgba(32, 86, 78, 0.7);
+    background-color: rgba(24, 123, 42, 0.7);
     border: 4px solid rgba(79, 152, 157, 0.2);
     text-align: left;
     width: 76%;
@@ -886,32 +890,82 @@ input[type="text"], select, input[type="date"] {
     width: 0;
 }
 
-.empleados_P{
+#listaDempleados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.empleado-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #2C7484;
-    width: 40%;
-    height: 50%;
-    border-radius: 20px;
-    
+    width: 300px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-.empleados_P p{
-    font-size: 11px;
-    font-weight: bolder;
-    width: 50%;
-    margin: auto;
+.empleado-card:hover {
+    transform: translateY(-5px);
+}
+
+.empleado-info p {
+    font-size: 14px;
     color: white;
-    text-shadow: 0px 2px 1px rgb(81, 81, 81);
-    letter-spacing: 1px;
-
+    margin: 8px 0;
+    letter-spacing: 0.5px;
 }
 
-.empleados_P p:first-child{
-    font-size: 16px;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 0px rgb(81, 81, 81);
+.empleado-info .nombre_empleado {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.empleado-info hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 15px 0;
+}
+
+.empleado-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.empleado-actions button {
+    padding: 10px 15px;
+    border: none;
+    top: 5%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.empleado-actions .detalleEmpleado {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.empleado-actions .detalleEmpleado:hover {
+    background-color: #45a049;
+}
+
+.empleado-actions .BorrarEmpleado {
+    background-color: #f44336;
+    color: white;
+}
+
+.empleado-actions .BorrarEmpleado:hover {
+    background-color: #da190b;
 }
 
 .registros a{
@@ -937,10 +991,7 @@ input[type="text"], select, input[type="date"] {
 
 .BorrarEmpleado{
     position: relative;
-   
-    left: 92%;
-    padding: 21px;
-    background: url(/static/imagenes/Eliminar.svg) no-repeat;  
+    padding: 21px; 
     background-size: 35px;
     background-position: right;
     border: none;
@@ -1009,29 +1060,17 @@ input[type="text"], select, input[type="date"] {
 #gestiondetalentos{
     display: flex;
     position: absolute;
-    top: 13%;
+    top: 10%;
     left: 20%;
     justify-content: center;
     align-items: center;
     width: 78%;
-    height: 100%;
-    background-color: #FFFFFF;
+    height: 80%;
     border-radius: 10px;
 }
 
-#gestiondetalentos h2{
-    position: relative;
-    bottom: 48%;
-    right: 34.6%;
-    height: 5%;
-    width: 30%;
-    text-align: center;
-    line-height: 30px;
-    font-weight: bold;
-    color: #03312A;
-    box-shadow: 0 2px 1px 1px rgb(231, 231, 231);
-    border-radius: 5px;
-    border-top: none
+#gestiondetalentos::-webkit-scrollbar {
+    width: 0;
 }
 
 #contenedorP_gestionDempleado{
@@ -1719,19 +1758,21 @@ input[type="text"], select, input[type="date"] {
 
 .contenedor-perfil {
     background-color: white;
-    padding: 20px;
+    padding: 15px; 
     border-radius: 8px;
-    height: 520px;
-    width: 800px;
-    margin-left: 350px;
+    height: 510px; 
+    width: 570px; 
+    margin: 0 450px 20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: var(--fuente);
+    font-size: 14px; 
 }
 
 .contenedor-perfil h2 {
     color: var(--color-primario);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 18px; 
 }
 
 .grupo-formulario {
@@ -1743,22 +1784,24 @@ input[type="text"], select, input[type="date"] {
     color: var(--color-primario);
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 14px; 
 }
 
 .grupo-formulario input {
     width: 100%;
-    padding: 8px;
+    padding: 6px; 
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 5px;
     box-sizing: border-box;
+    font-size: 14px; 
 }
 
 #foto-perfil {
     display: block;
     margin: 10px auto 15px;
-    width: 100px;
-    height: 100px;
+    width: 80px; 
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -1766,28 +1809,52 @@ input[type="text"], select, input[type="date"] {
 .btn-cambiar-foto, .btn-guardar {
     display: flex;
     justify-content: center;
-    width: 35%;
-    padding: 10px;
+    width: 50%; /* Reducir el tamaño del botón */
+    padding: 8px; /* Reducir el padding */
     border: none;
     border-radius: 5px;
     color: #fff;
-    background-color:#025043;
+    background-color: #025043;
     cursor: pointer;
     font-weight: bold;
     margin-top: 10px;
-    margin-left: 33%;
+    margin-left: 25%; /* Centrar el botón */
     transition: background 0.3s;
+    font-size: 14px; /* Reducir tamaño de texto del botón */
 }
 
 .btn-cambiar-foto:hover, .btn-guardar:hover {
     background-color: #1b5b4f;
 }
 
+
+
 .sesion-contador {
     text-align: center;
     color: var(--color-primario);
-    font-size: 14px;
+    font-size: 12px; /* Reducir tamaño de texto */
     margin-top: 10px;
+}
+
+.btn-cerrar-sesion {
+    display: flex;
+    justify-content: center;
+    width: 50%; /* Reducir tamaño del botón */
+    padding: 8px; /* Reducir padding */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #a30000;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 25%; /* Centrar botón */
+    transition: background 0.3s;
+    font-size: 14px; /* Reducir tamaño de texto */
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #8b0000;
 }
 
 /* ============================================================ */
@@ -2615,6 +2682,7 @@ input[type="text"], select, input[type="date"] {
 .search-bar,
 .buscar {
     margin-bottom: 20px;
+    margin-right: 21%;
 }
 
 .search-bar input,
@@ -2641,6 +2709,8 @@ input[type="text"], select, input[type="date"] {
     overflow-y: none;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+   
 }
 
 
@@ -2655,8 +2725,8 @@ input[type="text"], select, input[type="date"] {
 .tabla-beneficio {
     border-radius: 8px;
     padding: 20px;
-    width: calc(95% - 105px);
-    margin-left: -94px;
+    width: calc(100% - 105px);
+    margin-left: 111px;
     margin-top: -8px;
     height: calc(100vh - 100px);
     display: flex;
@@ -2668,7 +2738,8 @@ input[type="text"], select, input[type="date"] {
     flex: 1;
     overflow-y: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: auto;
 }
 
 .tableta th,
@@ -2685,7 +2756,7 @@ input[type="text"], select, input[type="date"] {
 }
 
 .tableta th {
-    background-color: #4CAF50;
+    background-color: var(--primary-color);
     color: white;
     font-weight: 600;
     text-transform: uppercase;
@@ -2726,7 +2797,7 @@ input[type="text"], select, input[type="date"] {
 /* Estilos para carga de archivos */
 .file-upload {
     background-color: #ffffff;
-    border: 2px dashed #4CAF50;
+    border: 2px dashed var(--primary-color);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -2735,7 +2806,7 @@ input[type="text"], select, input[type="date"] {
 }
 
 .file-upload:hover {
-    border-color: #45a049;
+    border-color: var(--primary-color);
     background-color: #f9fff9;
 }
 
@@ -2744,7 +2815,7 @@ input[type="text"], select, input[type="date"] {
 }
 
 .file-upload button {
-    background-color: #4CAF50;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -3019,8 +3090,7 @@ input[type="text"], select, input[type="date"] {
     overflow: auto;
     scrollbar-width: none;
 }
-
-#AreadeCurriculum {
+#correoReclutamiento{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3029,23 +3099,18 @@ input[type="text"], select, input[type="date"] {
     border-radius: 12px;
     height: auto;
     margin: 0.8rem 0;
-    padding: 1.5rem;
+    padding: 20px;
     transition: transform 0.3s ease;
+
 }
 
-#AreadeCurriculum:hover {
+#correoReclutamiento:hover {
+
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.curriculum_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 50%;
-    margin-top: 1rem;
-}
+
 
 .curriculum_aceptar,
 .curriculum_eliminar {
@@ -3164,7 +3229,7 @@ input[type="text"], select, input[type="date"] {
     width: 0;
 }
 
-#AreadeCurriculum{
+#CurriculumContainer{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -3174,26 +3239,6 @@ input[type="text"], select, input[type="date"] {
     border-radius: 12px;
     height: 31%;
     margin: 5px;
-}
-
-.curriculum_button {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 50%
-}
-
-.curriculum_aceptar{
-    margin-left: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.curriculum_eliminar{
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 #AreadeAspirantes_entrevistas{

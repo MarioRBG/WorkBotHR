@@ -115,3 +115,7 @@ function actualizarHeader() {
         if (headerFoto) headerFoto.src = fotoGuardada;
     }
 }
+
+function cerrarSesion() {
+    window.location.href = "/login";
+}

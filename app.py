@@ -9,6 +9,7 @@ from flask import send_from_directory, abort
 import pandas as pd
 import tempfile
 from datetime import datetime, timedelta
+import time
 
 
 app = Flask(__name__)
@@ -42,20 +43,26 @@ def login():
         password = encrypt_password(request.form['password'])
         print(f'Contraseña encriptada: {password}')
         
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM usuarios WHERE nom_usuario = %s', (username,))
-        account = cursor.fetchone()
-        print(f'Consultando usuario: {username}, encontrado: {account}')
+        try:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT * FROM usuarios WHERE nom_usuario = %s', (username,))
+            account = cursor.fetchone()
+            print(f'Consultando usuario: {username}, encontrado: {account}')
 
-        if account and account['contra_usuario'] == password:
-            session['loggedin'] = True
-            session['id'] = account['id']
-            session['nom_usuario'] = account['nom_usuario']
-            session['nom_completo'] = account['nom_completo']
-            return redirect(url_for('home'))
-        else:
-            msg = 'Nombre de usuario o contraseña incorrectos!'
-            
+            if account and account['contra_usuario'] == password:
+                session['loggedin'] = True
+                session['id'] = account['id']  # ID para actualizaciones
+                session['nom_usuario'] = account['nom_usuario']
+                session['nom_completo'] = account['nom_completo']
+                return redirect(url_for('home'))
+            else:
+                msg = 'Nombre de usuario o contraseña incorrectos!'
+        except Exception as e:
+            print(f'Error al autenticar usuario: {e}')
+            msg = 'Ocurrió un error. Inténtalo de nuevo.'
+        finally:
+            cursor.close()
+
     return render_template('login.html', msg=msg)
 
 @app.route('/nomina')
@@ -67,6 +74,42 @@ def home():
     if 'loggedin' in session:
         return render_template('home.html', nom_completo=session["nom_completo"])
     return redirect(url_for('login'))
+
+@app.route('/guardar_cambios', methods=['POST'])
+def guardar_cambios():
+    if 'loggedin' not in session:
+        flash("Debes iniciar sesión para realizar cambios.", "error")
+        return redirect(url_for('login'))
+
+    # Obtener datos del formulario
+    nom_completo = request.form.get('nom_completo')
+    nom_usuario = request.form.get('nom_usuario')
+    usuario_id = session['id']  # ID del usuario autenticado
+
+    # Validar datos
+    if not nom_completo or not nom_usuario:
+        flash("Todos los campos son obligatorios.", "error")
+        return redirect(url_for('configuracion_Perfil_Usuario'))
+
+    # Actualizar datos en la base de datos
+    cursor = mysql.connection.cursor()
+    try:
+        cursor.execute("""
+            UPDATE usuarios 
+            SET nom_completo = %s, nom_usuario = %s 
+            WHERE id = %s
+        """, (nom_completo, nom_usuario, usuario_id))
+        mysql.connection.commit()
+        session['nom_usuario'] = nom_usuario  # Actualizar también en la sesión
+        session['nom_completo'] = nom_completo
+        flash("Los cambios se guardaron exitosamente.", "success")
+    except Exception as e:
+        mysql.connection.rollback()
+        flash(f"Error al guardar los cambios: {e}", "error")
+    finally:
+        cursor.close()
+
+    return redirect(url_for('configuracion_Perfil_Usuario'))
 
 @app.route('/beneficios')
 def beneficios():
@@ -268,6 +311,19 @@ def detalleEmpleado():
     return render_template('detalleEmpleado.html', nom_completo=session["nom_completo"])
 
 
+accepted_files = []
+
+@app.route('/get_accepted_files', methods=['GET'])
+def get_accepted_files():
+    return jsonify(files=accepted_files)
+
+@app.route('/aceptar', methods=['POST'])
+def aceptar_archivo():
+    data = request.json
+    if data and 'name' in data:
+        accepted_files.append(data['name'])
+        return jsonify(success=True)
+    return jsonify(success=False)
 
 
 if __name__ == '__main__':

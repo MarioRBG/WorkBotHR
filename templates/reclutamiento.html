@@ -87,16 +87,22 @@
 
         </div>
         <div id="CajaSReclutamiento">
+            
 
             <div id="AreadeAspirantes_Reclutamiento">
+                <div>
+                <!-- Botón para subir archivos PDF -->
+                <input type="file" id="fileUpload" accept=".pdf" multiple>
+            </div>
 
             <div id="AreadeCurriculum">
-                <div id="id:correoReclutamiento">Correo:JAJAJ@HOTMAIL.COM</div>
-                <div id="id:AreaReclutamiento">Area:Contable</div>
+        
+                
                 <div class="curriculum_button">
-                    <div id="CurriculumReclutamiento"></div>
-                    <button class="curriculum_aceptar"><img src="{{ url_for('static', filename='imagenes/ImagenCheckverde.jpg') }}" alt="" width="60px"></button>
-                    <button class="curriculum_eliminar"><img src="{{ url_for('static', filename='imagenes/ImagenEquisRoja.jpg') }}" alt="" width="60px"></button>
+                                      
+                    <div id="CurriculumContainer"></div>
+                      
+                    </main>
                 </div>
             </div>
             
@@ -114,9 +120,59 @@
             </div>
         </div>
     </div>
-      
-    </main>
+    
 
     <script src="{{ url_for('static', filename='js/reclutamiento.js') }}"></script>
+    <script>
+        document.getElementById("fileUpload").addEventListener("change", function (event) {
+            const files = event.target.files;
+            const container = document.getElementById("AreadeCurriculum");
+        
+            Array.from(files).forEach((file) => {
+                if (file.type === "application/pdf") {
+                    const box = document.createElement("div");
+                    box.id = "CurriculumContainer";
+        
+                    box.innerHTML = `
+                        <div id="id:correoReclutamiento">${file.name}</div>
+                        <div class="curriculum_button">
+                            <div id="CurriculumReclutamiento">
+                                <a href="${URL.createObjectURL(file)}" target="_blank">Ver PDF</a>
+                            </div>
+                            <button class="curriculum_aceptar">Aceptar</button>
+                            <button class="curriculum_eliminar">Eliminar</button>
+                        </div>
+                    `;
+        
+                    // Botón Aceptar
+                    box.querySelector(".curriculum_aceptar").addEventListener("click", function () {
+                        fetch('/aceptar', {
+                            method: 'POST',
+                            body: JSON.stringify({ name: file.name }),
+                            headers: { 'Content-Type': 'application/json' },
+                        })
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.success) {
+                                alert("Archivo enviado a selección de personal");
+                            } else {
+                                alert("Error al enviar el archivo");
+                            }
+                        });
+                    });
+        
+                    // Botón Eliminar
+                    box.querySelector(".curriculum_eliminar").addEventListener("click", function () {
+                        container.removeChild(box);
+                    });
+        
+                    container.appendChild(box);
+                } else {
+                    alert("Solo se aceptan archivos PDF.");
+                }
+            });
+        });
+        
+    </script>
 </body>
 </html>

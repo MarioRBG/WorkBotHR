@@ -71,32 +71,32 @@
     <!-- caja de configuracion -->
     <div class="contenedor-perfil">
         <h2>Configuración de Perfil</h2>
-    
+        
         <!-- Foto de Perfil -->
         <img id="foto-perfil" src="https://via.placeholder.com/100" alt="Foto de Perfil">
         <input type="file" id="foto-nueva" accept="image/*" class="grupo-formulario">
         <button type="button" class="btn-cambiar-foto" onclick="cambiarFoto()">Cambiar Foto</button>
     
-        <!-- Nombre Completo -->
-        <div class="grupo-formulario">
-            <label for="nombreCompleto">Nombre Completo</label>
-            <input type="text" id="nombreCompleto" placeholder="Tu Nombre Completo">
-        </div>
+        <!-- Formulario para guardar cambios -->
+        <form action="/guardar_cambios" method="POST">
+            <!-- Nombre Completo -->
+            <div class="grupo-formulario">
+                <label for="nombreCompleto">Nombre Completo</label>
+                <input type="text" id="nombreCompleto" name="nom_completo" placeholder="Tu Nombre Completo" required>
+            </div>
+        
+            <!-- Correo Electrónico -->
+            <div class="grupo-formulario">
+                <label for="correoElectronico">Correo Electrónico</label>
+                <input type="email" id="correoElectronico" name="nom_usuario" placeholder="Tu Correo Electrónico" required>
+            </div>
+        
+            <!-- Botón Guardar Cambios -->
+            <button type="submit" class="btn-guardar">Guardar Cambios</button>
+        </form>
     
-        <!-- Correo Electrónico -->
-        <div class="grupo-formulario">
-            <label for="correoElectronico">Correo Electrónico</label>
-            <input type="email" id="correoElectronico" placeholder="Tu Correo Electrónico">
-        </div>
-    
-        <!-- Cambio de Contraseña -->
-        <div class="grupo-formulario">
-            <label for="nuevaContrasena">Nueva Contraseña</label>
-            <input type="password" id="nuevaContrasena" placeholder="Nueva Contraseña">
-        </div>
-    
-        <!-- Botón Guardar Cambios -->
-        <button type="button" class="btn-guardar" onclick="guardarCambios()">Guardar Cambios</button>
+        <!-- Botón Cerrar Sesión -->
+        <button type="button" class="btn-cerrar-sesion" onclick="cerrarSesion()">Cerrar Sesión</button>
     
         <!-- Contador de Sesiones -->
         <div class="sesion-contador" id="contadorSesion">

@@ -92,12 +92,10 @@
             <div id="AreadeAspirantes_SelecciondePersonal">
 
             <div id="AreadeCurriculum">
-                <div id="id:correoReclutamiento">Correo:JAJAJ@HOTMAIL.COM</div>
-                <div id="id:AreaReclutamiento">Area:Contable</div>
+                
                 <div class="curriculum_button">
-                    <div id="CurriculumReclutamiento"></div>
-                    <button class="curriculum_aceptar"><img src="imagenes/ImagenCheckverde.jpg" alt="" width="60px"></button>
-                    <button class="curriculum_eliminar"><img src="imagenes/ImagenEquisRoja.jpg" alt="" width="60px"></button>
+                    <div id="AreadeSeleccionPersonal"></div>
+                    
                 </div>
             </div>
             
@@ -121,7 +119,18 @@
         </div>
     </main>
 
-    
+    <script>
+        fetch('/get_accepted_files')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById("AreadeSeleccionPersonal");
+        data.files.forEach(file => {
+            const div = document.createElement("div");
+            div.innerHTML = `<div>${file}</div>`;
+            container.appendChild(div);
+        });
+    });
+    </script>
     
 </body>
 </html>

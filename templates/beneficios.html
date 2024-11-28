@@ -11,6 +11,7 @@
   <link rel="icon" href="{{ url_for('static', filename='imagenes/logoFavicon.ico') }}" type="logoFavicon.ico">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
   <script src="{{ url_for('static', filename='js/menu_lateral.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   
 </head>
 
@@ -87,6 +88,10 @@
       <div class="buscar">
         <input type="text" id="searchInput" placeholder="BUSCADOR.." />
       </div>
+      <div class="file-upload">
+        <input type="file" id="excelFile" accept=".xlsx, .xls">
+        <button onclick="loadExcel()">Cargar Excel</button>
+    </div>
 
       <div class="table-container">
         <table class="tableta" id="benefitsTable">
@@ -110,6 +115,9 @@
   </div>
 
   <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/tablaBeneficio.js') }}"></script>
+
+
 </body>
 
 </html>

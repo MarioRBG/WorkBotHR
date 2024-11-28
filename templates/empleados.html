@@ -113,23 +113,25 @@
 
         <div id="listaDempleados">
             {% for empleado in empleados %}
-            <div class="empleados_P" name="empleados_">
-                <p class="nombre_empleado"> {{ empleado['nombre'] }}</p>
-                <hr>
-                <p class="EmpleadoID">ID: {{ empleado['EmpleadoID'] }}</p>
-                <p class="correo_empleado">Correo: {{ empleado['correo'] }}</p>
-                <p class="cargo_empleado">Cargo: {{ empleado['cargo'] }}</p>
-                <p class="area_empleado">Área: {{ empleado['area'] }}</p>
-                <p class="direccion_empleado">Dirección: {{ empleado['direccion'] }}</p>
-                <p class="foto_perfil">{{ empleado['foto_perfil'] }}</p>
-        
-                <form action="{{ url_for('detalle_empleado', empleado_id=empleado['EmpleadoID']) }}" method="GET">
-                    <button class="detalleEmpleado" type="submit">Ver detalles</button>
-                </form>
-        
-                <form action="{{ url_for('eliminar_empleado', empleado_id=empleado['EmpleadoID']) }}" method="POST">
-                    <button class="BorrarEmpleado" type="submit"></button>
-                </form>
+            <div class="empleado-card" name="empleados_">
+                <div class="empleado-info">
+                    <p class="nombre_empleado">{{ empleado['nombre'] }}</p>
+                    <hr>
+                    <p class="EmpleadoID">ID: {{ empleado['EmpleadoID'] }}</p>
+                    <p class="correo_empleado">Correo: {{ empleado['correo'] }}</p>
+                    <p class="cargo_empleado">Cargo: {{ empleado['cargo'] }}</p>
+                    <p class="area_empleado">Área: {{ empleado['area'] }}</p>
+                    <p class="direccion_empleado">Dirección: {{ empleado['direccion'] }}</p>
+                    <p class="foto_perfil">{{ empleado['foto_perfil'] }}</p>
+                </div>
+                <div class="empleado-actions">
+                    <form action="{{ url_for('detalle_empleado', empleado_id=empleado['EmpleadoID']) }}" method="GET">
+                        <button class="detalleEmpleado" type="submit">Ver detalles</button>
+                    </form>
+                    <form action="{{ url_for('eliminar_empleado', empleado_id=empleado['EmpleadoID']) }}" method="POST">
+                        <button class="BorrarEmpleado" type="submit">Eliminar</button>
+                    </form>
+                </div>
             </div>
             {% endfor %}
         </div>
